@@ -1,0 +1,7 @@
+POST https://hidden-chamber-71708.herokuapp.com/api/persons
+Content-Type: application/json
+
+{
+  "name": "Heroku person",
+  "number": "987654321"
+}
