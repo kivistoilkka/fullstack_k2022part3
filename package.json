@@ -8,7 +8,7 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf build && cd ../../../Fullstack_k22/osa3/puhelinluettelo_frontend/ && cp -r build ../../../Fullstack_k22Backend/osa3/fullstack_k2022part3/",
-    "deploy": "git push heroku main",
+    "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail"
   },
