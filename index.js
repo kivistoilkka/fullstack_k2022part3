@@ -18,7 +18,6 @@ app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 app.use(cors())
 
-
 app.get('/api/persons', (req, res, next) => {
   Person.find({})
     .then(persons => {
@@ -72,6 +71,21 @@ app.post('/api/persons', (req, res, next) => {
   person.save()
     .then(savedPerson => {
       res.json(savedPerson)
+    })
+    .catch(error => next(error))
+})
+
+app.put('/api/persons/:id', (req, res, next) => {
+  const body = req.body
+
+  const person = {
+    name: body.name,
+    number: body.number,
+  }
+
+  Person.findByIdAndUpdate(req.params.id, person, { new: true })
+    .then(updatedPerson => {
+      res.json(updatedPerson)
     })
     .catch(error => next(error))
 })

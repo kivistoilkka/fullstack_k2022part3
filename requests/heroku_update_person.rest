@@ -1,0 +1,7 @@
+PUT https://hidden-chamber-71708.herokuapp.com/api/persons/620847eaa0e179298ecd2d01
+Content-Type: application/json
+
+{
+    "name": "Neljäs",
+    "number": 777773433
+}
