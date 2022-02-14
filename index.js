@@ -26,8 +26,12 @@ app.get('/api/persons', (req, res, next) => {
     .catch(error => next(error))
 })
 
-app.get('/info', (req, res) => {
-  res.send(`<p>Phonebook has info for ${persons.length} people</p>${new Date()}`)
+app.get('/info', (req, res, next) => {
+  Person.estimatedDocumentCount()
+    .then(count => {
+      res.send(`<p>Phonebook has info for ${count} people</p>${new Date()}`)
+    })
+    .catch(error => next(error))
 })
 
 app.get('/api/persons/:id', (req, res, next) => {
